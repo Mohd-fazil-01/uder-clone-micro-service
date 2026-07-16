@@ -140,20 +140,43 @@ uber-clone-microservices/
    ```
 
 ---
-
 ## 🔑 API Overview
 
-| Service | Endpoint | Description |
-|---|---|---|
-| User | `POST /users/register` | Register a new user |
-| User | `POST /users/login` | User login |
-| Captain | `POST /captains/register` | Register a new captain |
-| Captain | `POST /captains/login` | Captain login |
-| Ride | `POST /rides/create` | Create a new ride request |
-| Ride | `GET /rides/:id` | Get ride details |
+All requests are routed through the **API Gateway**.
 
-> Update this table with your actual routes and request/response formats.
+### 👤 User Service
 
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/users/register` | Register a new user |
+| POST | `/users/login` | Login user |
+| GET | `/users/profile` | Get authenticated user's profile |
+| GET | `/users/logout` | Logout user |
+
+---
+
+### 🧑‍✈️ Captain Service
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/captains/register` | Register a new captain |
+| POST | `/captains/login` | Login captain |
+| GET | `/captains/profile` | Get captain profile |
+| GET | `/captains/logout` | Logout captain |
+| GET | `/captains/toggle-availability` | Toggle captain availability |
+| GET | `/captains/new-ride` | Fetch new ride requests |
+| GET | `/captains/accept-ride` | Accept a ride request |
+
+---
+
+### 🚕 Ride Service
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/rides/create-ride` | Create a new ride |
+| GET | `/rides/accept-ride` | Accept an existing ride |
+
+> **Note:** All endpoints should be accessed through the **API Gateway**, not by calling individual microservices directly.
 ---
 
 ## 🧪 Testing
